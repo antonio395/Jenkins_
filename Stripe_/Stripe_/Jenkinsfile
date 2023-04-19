@@ -4,11 +4,11 @@ pipeline {
   
   tools {
     // Usar Maven 3.9.1 para construir el proyecto
-    maven '3.9.1'
+    maven 'Maven 3.9.1'
   }
   
   stages {
-    stage('Build') {
+    stage('Build and package') {
       steps {
         // Clonar el repositorio de GitHub y verificar la rama principal
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
@@ -17,8 +17,9 @@ pipeline {
                                        url: 'https://github.com/antonio395/Jenkins_/Stripe_']]])
         
         // Limpiar el proyecto y compilarlo con Maven
-        sh 'mvn clean install'
+        sh 'mvn clean package'
       }
     }
   }
 }
+
