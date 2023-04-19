@@ -1,7 +1,25 @@
-pipeline{agent any tools{maven '3.9.1'}stages{stage('build maven'){steps{checkout scmGit(branches:[[name:'*/main']],extensions:[],userRemoteConfigs:[[credentialsId:'28e20a8a-7e7a-4605-9f7e-fe64aceaca9a',url:'https://github.com/antonio395/Jenkins_/Stripe_']])sh'mvn clean install'}}}}
-
-
-
-
-
+pipeline {
+  // Se ejecuta en cualquier agente disponible
+  agent any
+  
+  tools {
+    // Usar Maven 3.9.1 para construir el proyecto
+    maven 'Maven 3.9.1'
+  }
+  
+  stages {
+    stage('Build and package') {
+      steps {
+        // Clonar el repositorio de GitHub y verificar la rama principal
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
+                  extensions: [], 
+                  userRemoteConfigs: [[credentialsId: '28e20a8a-7e7a-4605-9f7e-fe64aceaca9a', 
+                                       url: 'https://github.com/antonio395/Jenkins_']]])
+        
+        // Limpiar el proyecto y compilarlo con Maven
+        sh 'mvn clean package'
+      }
+    }
+  }
+}
 
