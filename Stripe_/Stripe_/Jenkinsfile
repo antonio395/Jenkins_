@@ -5,6 +5,7 @@ pipeline {
   tools {
     // Usar Maven 3.9.1 para construir el proyecto
     maven 'Maven 3.9.1'
+    jdk 'jdk 17'
   }
   
   stages {
