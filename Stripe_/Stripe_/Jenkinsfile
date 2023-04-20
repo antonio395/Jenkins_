@@ -14,7 +14,7 @@ pipeline {
         // Clonar el repositorio de GitHub y verificar la rama principal
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
                   extensions: [], 
-                  userRemoteConfigs: [[credentialsId: '28e20a8a-7e7a-4605-9f7e-fe64aceaca9a', 
+                  userRemoteConfigs: [[credentialsId: 'cf6403c6-af6a-4503-8642-843f5803307f', 
                                        url: 'https://github.com/antonio395/Jenkins_']]])
         
         // Limpiar el proyecto y compilarlo con Maven
