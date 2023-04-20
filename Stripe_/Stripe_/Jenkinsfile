@@ -14,7 +14,7 @@ pipeline {
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
                   extensions: [], 
                   userRemoteConfigs: [[credentialsId: '28e20a8a-7e7a-4605-9f7e-fe64aceaca9a', 
-                                       url: 'https://github.com/antonio395/Jenkins_/Stripe_']]])
+                                       url: 'https://github.com/antonio395/Jenkins_']]])
         
         // Limpiar el proyecto y compilarlo con Maven
         sh 'mvn clean package'
