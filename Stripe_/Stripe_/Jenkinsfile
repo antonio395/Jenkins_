@@ -5,7 +5,7 @@ pipeline {
   tools {
     // Usar Maven 3.9.1 para construir el proyecto
     maven 'Maven 3.9.1'
-    jdk 'jdk 17'
+    
   }
   
   stages {
@@ -19,6 +19,7 @@ pipeline {
         
         // Limpiar el proyecto y compilarlo con Maven
         sh 'mvn clean package -f Stripe_/Stripe_/pom.xml'
+        
 
       }
     }
